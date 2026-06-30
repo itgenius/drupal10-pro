@@ -1,0 +1,13 @@
+name: Hero
+props:
+  type: object
+  properties:
+    eyebrow: { type: string }
+    title: { type: string }
+    summary: { type: string }
+    primary_label: { type: string }
+    primary_url: { type: string }
+    secondary_label: { type: string }
+    secondary_url: { type: string }
+    image_url: { type: string }
+    image_alt: { type: string }

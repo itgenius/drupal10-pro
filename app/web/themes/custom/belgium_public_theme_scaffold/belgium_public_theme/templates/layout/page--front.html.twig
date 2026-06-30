@@ -1,0 +1,164 @@
+{#
+  Front page template
+  Homepage with hero + CTA buttons + album cards
+#}
+
+<div class="utility-bar">
+  <div class="container utility-bar__inner">
+    <p class="utility-bar__text">
+      {{ 'Other government information and services:'|t }}
+      <a href="https://www.belgium.be" class="utility-bar__link" target="_blank" rel="noopener noreferrer">
+        belgium.be
+        <span class="utility-bar__icon" aria-hidden="true">↗</span>
+        <span class="visually-hidden">{{ '(link is external)'|t }}</span>
+      </a>
+    </p>
+  </div>
+</div>
+
+<header class="site-header" role="banner">
+  <div class="container">
+
+    <div class="site-header__top">
+      <a class="brand" href="{{ path('<front>') }}" aria-label="{{ 'Home'|t }}">
+        <span class="brand__logo" aria-hidden="true"></span>
+        <span class="brand__title">
+          <span class="brand__name">{{ site_name }}</span>
+          <span class="brand__tagline">{{ 'Public website'|t }}</span>
+        </span>
+      </a>
+
+      <div class="site-tools">
+        {{ page.header }}
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+          <span class="menu-toggle__label">{{ 'Menu'|t }}</span>
+          <span class="menu-toggle__icon" aria-hidden="true">☰</span>
+        </button>
+      </div>
+    </div>
+
+    <nav id="site-navigation" class="site-nav" aria-label="{{ 'Primary navigation'|t }}">
+      {{ page.primary_menu }}
+    </nav>
+
+  </div>
+</header>
+
+<main role="main" class="site-main">
+
+  <section class="front-hero">
+    <div class="container front-hero__inner">
+      <div class="front-hero__content">
+        <p class="front-hero__eyebrow">{{ 'Official information platform'|t }}</p>
+
+        <h1 class="front-hero__title">
+          {{ 'Welcome to our institutional website'|t }}
+        </h1>
+
+        <p class="front-hero__lead">
+          {{ 'Find news, publications, events and useful information in one central multilingual platform.'|t }}
+        </p>
+
+        <div class="front-hero__actions">
+          <a class="btn btn-primary" href="/publications">
+            {{ 'View publications'|t }}
+          </a>
+
+          <a class="btn btn-secondary" href="/a-propos-de-nous">
+            {{ 'About us'|t }}
+          </a>
+        </div>
+      </div>
+
+      <div class="front-hero__visual" aria-hidden="true">
+        <div class="front-hero__visual-card">
+          <span class="front-hero__visual-label">{{ 'Institution'|t }}</span>
+          <strong>{{ 'Reliable public information'|t }}</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="album-section">
+    <div class="container">
+      <div class="section-heading">
+        <p class="section-heading__eyebrow">{{ 'Explore'|t }}</p>
+        <h2>{{ 'Featured content'|t }}</h2>
+        <p>{{ 'Discover the latest news, publications and institutional resources.'|t }}</p>
+      </div>
+
+      <div class="album-grid">
+
+        {% set cards = [
+          {
+            title: 'News',
+            text: 'Stay informed about recent announcements and institutional updates.',
+            link: '/actualites',
+            meta: '9 mins'
+          },
+          {
+            title: 'Publications',
+            text: 'Browse reports, studies, guides and official documents.',
+            link: '/publications',
+            meta: '12 mins'
+          },
+          {
+            title: 'Events',
+            text: 'Find upcoming conferences, meetings and public events.',
+            link: '/evenements',
+            meta: '7 mins'
+          },
+          {
+            title: 'About us',
+            text: 'Learn more about our mission, organisation and priorities.',
+            link: '/a-propos-de-nous',
+            meta: '5 mins'
+          },
+          {
+            title: 'Useful links',
+            text: 'Access selected resources and external services.',
+            link: '/liens-utiles',
+            meta: '4 mins'
+          },
+          {
+            title: 'Contact',
+            text: 'Get in touch with our team for information and support.',
+            link: '/contactez-nous',
+            meta: '3 mins'
+          }
+        ] %}
+
+        {% for card in cards %}
+          <article class="album-card">
+            <div class="album-card__thumb" role="img" aria-label="{{ card.title }}">
+              <span>{{ card.title }}</span>
+            </div>
+
+            <div class="album-card__body">
+              <h3 class="album-card__title">{{ card.title|t }}</h3>
+              <p class="album-card__text">{{ card.text|t }}</p>
+
+              <div class="album-card__footer">
+                <div class="album-card__actions">
+                  <a class="btn btn-sm btn-outline" href="{{ card.link }}">
+                    {{ 'View'|t }}
+                  </a>
+                  <a class="btn btn-sm btn-outline" href="{{ card.link }}">
+                    {{ 'Details'|t }}
+                  </a>
+                </div>
+
+                <small class="album-card__meta">{{ card.meta }}</small>
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+{% include '@belgium_public_theme/layout/site-footer.html.twig' %}

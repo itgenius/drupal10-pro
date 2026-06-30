@@ -1,0 +1,7 @@
+name: Site header
+props:
+  type: object
+  properties:
+    site_name: { type: string }
+    logo: { type: string }
+    search_page_url: { type: string }

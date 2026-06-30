@@ -1,0 +1,18 @@
+<section class="hero-section">
+  <div class="container hero-section__inner">
+    <div class="hero-section__content">
+      {% if eyebrow %}<p class="hero-section__eyebrow">{{ eyebrow }}</p>{% endif %}
+      <h1 class="hero-section__title">{{ title }}</h1>
+      {% if summary %}<div class="hero-section__summary">{{ summary }}</div>{% endif %}
+      <div class="hero-section__actions">
+        {% if primary_label and primary_url %}<a href="{{ primary_url }}" class="button button--primary">{{ primary_label }}</a>{% endif %}
+        {% if secondary_label and secondary_url %}<a href="{{ secondary_url }}" class="button button--secondary">{{ secondary_label }}</a>{% endif %}
+      </div>
+    </div>
+    {% if image_url %}
+      <div class="hero-section__media">
+        <img src="{{ image_url }}" alt="{{ image_alt ?: title }}" />
+      </div>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,10 @@
+global:
+  css:
+    theme:
+      css/base.css: {}
+      css/utilities.css: {}
+  js:
+    js/theme.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

@@ -1,0 +1,4 @@
+name: Main navigation
+slots:
+  menu:
+    title: Menu markup

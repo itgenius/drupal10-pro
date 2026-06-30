@@ -1,0 +1,13 @@
+name: Institution
+type: theme
+description: "Thème institutionnel multilingue."
+base theme: olivero
+core_version_requirement: ^10
+libraries:
+  - institution/global
+
+regions:
+  header: Header (tools)
+  primary_menu: Primary menu
+  content: Content
+  footer: Footer

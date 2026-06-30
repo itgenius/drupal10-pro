@@ -1,0 +1,4 @@
+administer institution contact submissions:
+  title: 'Administer institution contact submissions'
+  description: 'View contact form submissions.'
+  restrict access: true

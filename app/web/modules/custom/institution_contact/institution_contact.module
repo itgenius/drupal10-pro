@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * @file
+ * Hooks for Institution Contact module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function institution_contact_theme($existing, $type, $theme, $path): array {
+  return [
+    'institution_contact_page' => [
+      'variables' => [
+        'form' => NULL,
+        'sent' => FALSE,
+        'error' => FALSE,
+      ],
+      'template' => 'institution-contact-page',
+      'path' => $path . '/templates',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_mail().
+ */
+function institution_contact_mail($key, &$message, $params): void {
+  $site_name = \Drupal::config('system.site')->get('name') ?: 'Institution';
+
+  switch ($key) {
+    case 'contact_message':
+      $message['subject'] = $params['subject_line'];
+      $message['headers']['Reply-To'] = $params['email'];
+
+      $message['body'][] = "Nouveau message depuis le formulaire de contact du site {$site_name}";
+      $message['body'][] = "";
+      $message['body'][] = "Nom : " . $params['name'];
+      $message['body'][] = "Email : " . $params['email'];
+      $message['body'][] = "Téléphone : " . ($params['phone'] ?: 'Non renseigné');
+      $message['body'][] = "Sujet : " . $params['subject'];
+      $message['body'][] = "Type de demande : " . $params['topic_label'];
+      $message['body'][] = "";
+      $message['body'][] = "Message :";
+      $message['body'][] = $params['message'];
+      $message['body'][] = "";
+      $message['body'][] = "Informations techniques :";
+      $message['body'][] = "Date : " . $params['created'];
+      $message['body'][] = "IP : " . $params['ip'];
+      break;
+
+    case 'contact_copy':
+      $message['subject'] = $params['copy_subject'];
+      $message['body'][] = "Bonjour " . $params['name'] . ",";
+      $message['body'][] = "";
+      $message['body'][] = "Nous avons bien reçu votre message. Notre équipe reviendra vers vous dès que possible.";
+      $message['body'][] = "";
+      $message['body'][] = "Récapitulatif de votre demande :";
+      $message['body'][] = "Sujet : " . $params['subject'];
+      $message['body'][] = "Type de demande : " . $params['topic_label'];
+      $message['body'][] = "";
+      $message['body'][] = "Message :";
+      $message['body'][] = $params['message'];
+      $message['body'][] = "";
+      $message['body'][] = "Cordialement,";
+      $message['body'][] = $site_name;
+      break;
+  }
+}

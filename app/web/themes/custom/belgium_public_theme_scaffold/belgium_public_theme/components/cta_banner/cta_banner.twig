@@ -1,0 +1,11 @@
+<section class="cta-banner">
+  <div class="container cta-banner__inner">
+    <div>
+      <h2>{{ title }}</h2>
+      {% if summary %}<p>{{ summary }}</p>{% endif %}
+    </div>
+    {% if button_label and button_url %}
+      <a href="{{ button_url }}" class="button button--primary">{{ button_label }}</a>
+    {% endif %}
+  </div>
+</section>

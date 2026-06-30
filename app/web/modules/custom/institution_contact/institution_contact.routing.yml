@@ -1,0 +1,15 @@
+institution_contact.page:
+  path: '/contactez-nous'
+  defaults:
+    _controller: '\Drupal\institution_contact\Controller\ContactPageController::page'
+    _title: 'Contactez-nous'
+  requirements:
+    _permission: 'access content'
+
+institution_contact.submissions:
+  path: '/admin/content/contact-submissions'
+  defaults:
+    _controller: '\Drupal\institution_contact\Controller\ContactSubmissionsController::list'
+    _title: 'Messages de contact'
+  requirements:
+    _permission: 'administer institution contact submissions'

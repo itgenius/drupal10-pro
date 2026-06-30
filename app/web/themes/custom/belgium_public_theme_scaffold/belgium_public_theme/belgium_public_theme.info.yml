@@ -1,0 +1,14 @@
+name: Belgium Public Theme
+type: theme
+description: "Thème institutionnel public avec mega-menu."
+base theme: olivero
+core_version_requirement: ^10 || ^11
+
+libraries:
+  - belgium_public_theme/global
+
+regions:
+  header: Header
+  primary_menu: Primary menu
+  content: Content
+  footer: Footer

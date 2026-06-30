@@ -1,0 +1,8 @@
+name: Government top bar
+props:
+  type: object
+  properties:
+    portal_url:
+      type: string
+    portal_label:
+      type: string

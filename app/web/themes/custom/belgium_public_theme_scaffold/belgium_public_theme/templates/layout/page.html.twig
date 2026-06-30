@@ -1,0 +1,58 @@
+{#
+  Belgium Public Theme
+  Regions:
+  - header: search block + language switcher
+  - primary_menu: main navigation
+  - content
+  - footer
+#}
+
+<div class="utility-bar">
+  <div class="container utility-bar__inner">
+    <p class="utility-bar__text">
+      {{ 'Other government information and services:'|t }}
+      <a href="https://www.belgium.be" class="utility-bar__link" target="_blank" rel="noopener noreferrer">
+        belgium.be
+        <span class="utility-bar__icon" aria-hidden="true">↗</span>
+        <span class="visually-hidden">{{ '(link is external)'|t }}</span>
+      </a>
+    </p>
+  </div>
+</div>
+
+<header class="site-header" role="banner">
+  <div class="container">
+
+    <div class="site-header__top">
+      <a class="brand" href="{{ path('<front>') }}" aria-label="{{ 'Home'|t }}">
+        <span class="brand__logo" aria-hidden="true"></span>
+        <span class="brand__title">
+          <span class="brand__name">{{ site_name }}</span>
+          <span class="brand__tagline">{{ 'Public website'|t }}</span>
+        </span>
+      </a>
+
+      <div class="site-tools">
+        {{ page.header }}
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+          <span class="menu-toggle__label">{{ 'Menu'|t }}</span>
+          <span class="menu-toggle__icon" aria-hidden="true">☰</span>
+        </button>
+      </div>
+    </div>
+
+    <nav id="site-navigation" class="site-nav" aria-label="{{ 'Primary navigation'|t }}">
+      {{ page.primary_menu }}
+    </nav>
+
+  </div>
+</header>
+
+<main role="main" class="site-main">
+  <div class="container" style="padding: 2rem 0;">
+    {{ page.content }}
+  </div>
+</main>
+
+{% include '@belgium_public_theme/layout/site-footer.html.twig' %}

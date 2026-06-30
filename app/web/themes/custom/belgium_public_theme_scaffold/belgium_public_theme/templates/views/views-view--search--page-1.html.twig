@@ -1,0 +1,11 @@
+<div class="search-results-page container">
+  <aside class="search-results-page__filters">
+    {{ exposed }}
+    {{ attachment_before }}
+  </aside>
+  <div class="search-results-page__content">
+    {% if header %}<div class="view-header">{{ header }}</div>{% endif %}
+    {{ rows }}
+    {{ pager }}
+  </div>
+</div>

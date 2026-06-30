@@ -1,0 +1,16 @@
+<section class="testimonials-section">
+  <div class="container">
+    {% include 'belgium_public_theme:section_title' with { title: title, summary: summary } only %}
+    <div class="testimonials-grid">
+      {% for item in items %}
+        <blockquote class="testimonial-card">
+          <p>“{{ item.quote }}”</p>
+          <footer>
+            <strong>{{ item.name }}</strong>
+            {% if item.role %}<span>{{ item.role }}</span>{% endif %}
+          </footer>
+        </blockquote>
+      {% endfor %}
+    </div>
+  </div>
+</section>

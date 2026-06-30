@@ -1,0 +1,67 @@
+services:
+
+  db:
+    image: mariadb:11.4
+    container_name: drupalpro_db
+    environment:
+      MARIADB_DATABASE: ${DB_NAME}
+      MARIADB_USER: ${DB_USER}
+      MARIADB_PASSWORD: ${DB_PASS}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASS}
+    volumes:
+      - db_data:/var/lib/mysql
+
+  redis:
+    image: redis:7-alpine
+    container_name: drupalpro_redis
+    ports:
+      - "6379:6379"
+
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: drupalpro_mailpit
+    ports:
+      - "8025:8025"   # UI
+      - "1025:1025"   # SMTP
+
+  php:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+    container_name: drupalpro_php
+    working_dir: /var/www/html
+    environment:
+      XDEBUG_MODE: debug,develop
+      XDEBUG_CONFIG: client_host=host.docker.internal client_port=9003
+    volumes:
+      - ./app:/var/www/html
+    # ... autres configurations
+    user: "www-data:www-data"
+    
+  web:
+    image: httpd:2.4
+    container_name: drupalpro_web
+    depends_on:
+      - php
+      - db
+    ports:
+      - "8093:80"
+    volumes:
+      - ./app:/var/www/html
+      - ./docker/apache/httpd.conf:/usr/local/apache2/conf/httpd.conf:ro
+    # IMPORTANT: pas de command ici. On garde le CMD par défaut: httpd-foreground
+
+  phpmyadmin:
+    image: phpmyadmin:5
+    container_name: drupalpro_pma
+    ports:
+      - "8094:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: ${DB_ROOT_PASS}
+    depends_on:
+      - db
+
+volumes:
+  db_data:

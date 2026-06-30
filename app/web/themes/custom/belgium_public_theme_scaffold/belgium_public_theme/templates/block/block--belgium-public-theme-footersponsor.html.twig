@@ -1,0 +1,14 @@
+<section{{ attributes.addClass('footer-sponsor') }}>
+  <h2 class="visually-hidden">{{ configuration.label }}</h2>
+
+  <div class="footer-sponsor__text">
+    <h5>{{ 'Co-financé par'|t }}<br>{{ "l'Union européenne"|t }}</h5>
+  </div>
+
+  <div class="footer-sponsor__logo">
+    <img
+      src="{{ base_path ~ directory }}/images/european_union_logo.jpg"
+      alt="{{ 'European Union logo'|t }}"
+      loading="lazy">
+  </div>
+</section>

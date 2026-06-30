@@ -1,0 +1,195 @@
+<article class="contact-page">
+
+  <section class="contact-hero">
+    <div class="container contact-hero__inner">
+
+      <div class="contact-hero__content">
+        <p class="contact-hero__eyebrow">{{ 'Contactez-nous'|t }}</p>
+
+        <h1 class="contact-hero__title">
+          {{ 'Nous sommes à votre écoute'|t }}
+        </h1>
+
+        <p class="contact-hero__lead">
+          {{ 'Une question, une demande d’information, un partenariat ou un besoin d’accompagnement ? Remplissez le formulaire et notre équipe reviendra vers vous dès que possible.'|t }}
+        </p>
+
+        <div class="contact-hero__actions">
+          <a class="btn btn-primary" href="#contact-form">
+            {{ 'Envoyer un message'|t }}
+          </a>
+
+          <a class="btn btn-secondary" href="/fr/posts">
+            {{ 'Voir les publications'|t }}
+          </a>
+        </div>
+      </div>
+
+      <aside class="contact-hero__card" aria-label="{{ 'Informations de contact rapides'|t }}">
+        <div class="contact-hero__card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="34" height="34">
+            <path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/>
+          </svg>
+        </div>
+
+        <strong>{{ 'Réponse rapide et personnalisée'|t }}</strong>
+
+        <p>
+          {{ 'Nous traitons les messages avec attention afin d’orienter chaque demande vers le bon service.'|t }}
+        </p>
+      </aside>
+
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container contact-layout">
+
+      <div class="contact-info">
+
+        <div class="contact-info__heading">
+          <p class="section-heading__eyebrow">{{ 'Informations pratiques'|t }}</p>
+          <h2>{{ 'Comment nous joindre ?'|t }}</h2>
+          <p>
+            {{ 'Utilisez le formulaire ou les informations ci-dessous pour nous contacter. Nous vous répondrons dans les meilleurs délais.'|t }}
+          </p>
+        </div>
+
+        <div class="contact-info__grid">
+
+          <article class="contact-card">
+            <div class="contact-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26">
+                <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/>
+              </svg>
+            </div>
+            <div>
+              <h3>{{ 'Adresse'|t }}</h3>
+              <p>{{ 'Bruxelles, Belgique'|t }}</p>
+              <small>{{ 'Adresse complète à adapter selon l’institution.'|t }}</small>
+            </div>
+          </article>
+
+          <article class="contact-card">
+            <div class="contact-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26">
+                <path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/>
+              </svg>
+            </div>
+            <div>
+              <h3>{{ 'Email'|t }}</h3>
+              <p><a href="mailto:contact@institution.be">contact@institution.be</a></p>
+              <small>{{ 'Remplace cette adresse par ton email officiel.'|t }}</small>
+            </div>
+          </article>
+
+          <article class="contact-card">
+            <div class="contact-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26">
+                <path fill="currentColor" d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/>
+              </svg>
+            </div>
+            <div>
+              <h3>{{ 'Téléphone'|t }}</h3>
+              <p><a href="tel:+32000000000">+32 00 00 00 00</a></p>
+              <small>{{ 'Du lundi au vendredi, pendant les heures de bureau.'|t }}</small>
+            </div>
+          </article>
+
+          <article class="contact-card">
+            <div class="contact-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26">
+                <path fill="currentColor" d="M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22Zm1 11.59 3.3 3.3-1.41 1.41L11 13.41V6h2v6.59Z"/>
+              </svg>
+            </div>
+            <div>
+              <h3>{{ 'Horaires'|t }}</h3>
+              <p>{{ 'Lundi - vendredi'|t }}</p>
+              <small>{{ '09:00 - 17:00'|t }}</small>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="contact-note">
+          <div class="contact-note__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26">
+              <path fill="currentColor" d="M11 17h2v-6h-2v6Zm1-14a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 16a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm-1-10h2V7h-2v2Z"/>
+            </svg>
+          </div>
+          <p>
+            {{ 'Pour une demande urgente, indiquez clairement le contexte, l’objet de votre demande et vos coordonnées complètes.'|t }}
+          </p>
+        </div>
+
+      </div>
+
+      <div id="contact-form" class="contact-form-panel">
+
+        {% if sent %}
+          <div class="contact-alert contact-alert--success">
+            <strong>{{ 'Message envoyé.'|t }}</strong>
+            <p>{{ 'Merci pour votre demande. Notre équipe reviendra vers vous dès que possible.'|t }}</p>
+          </div>
+        {% endif %}
+
+        {% if error %}
+          <div class="contact-alert contact-alert--error">
+            <strong>{{ 'Erreur d’envoi.'|t }}</strong>
+            <p>{{ 'Le message n’a pas pu être envoyé. Veuillez réessayer plus tard ou utiliser l’adresse email indiquée sur cette page.'|t }}</p>
+          </div>
+        {% endif %}
+
+        <div class="contact-form-panel__header">
+          <p class="section-heading__eyebrow">{{ 'Formulaire de contact'|t }}</p>
+          <h2>{{ 'Envoyez-nous un message'|t }}</h2>
+          <p>
+            {{ 'Tous les champs marqués comme obligatoires doivent être complétés.'|t }}
+          </p>
+        </div>
+
+        {{ form }}
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="contact-service-section">
+    <div class="container">
+      <div class="section-heading">
+        <p class="section-heading__eyebrow">{{ 'Nos engagements'|t }}</p>
+        <h2>{{ 'Un contact clair, utile et professionnel'|t }}</h2>
+      </div>
+
+      <div class="contact-service-grid">
+
+        <article class="contact-service-card">
+          <span class="contact-service-card__number">01</span>
+          <h3>{{ 'Réponse orientée solution'|t }}</h3>
+          <p>
+            {{ 'Chaque message est analysé afin de fournir une réponse claire ou une orientation vers le bon service.'|t }}
+          </p>
+        </article>
+
+        <article class="contact-service-card">
+          <span class="contact-service-card__number">02</span>
+          <h3>{{ 'Respect des données'|t }}</h3>
+          <p>
+            {{ 'Les informations transmises sont utilisées uniquement pour traiter votre demande.'|t }}
+          </p>
+        </article>
+
+        <article class="contact-service-card">
+          <span class="contact-service-card__number">03</span>
+          <h3>{{ 'Communication multilingue'|t }}</h3>
+          <p>
+            {{ 'Vous pouvez nous contacter en français, néerlandais ou anglais selon votre préférence.'|t }}
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</article>

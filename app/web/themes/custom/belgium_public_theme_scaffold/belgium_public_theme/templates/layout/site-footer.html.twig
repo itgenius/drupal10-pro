@@ -1,0 +1,51 @@
+{#
+  Shared footer for all pages.
+  This footer is used by page.html.twig and page--front.html.twig.
+#}
+
+<footer role="contentinfo" class="institution-footer">
+  <div class="container institution-footer__inner">
+
+    <div class="institution-footer__main">
+      {% if page.footer %}
+        <div class="institution-footer__region">
+          {{ page.footer }}
+        </div>
+      {% else %}
+        <div class="institution-footer__default">
+          <h4>
+            <a href="/fr/contactez-nous">{{ 'Contactez-nous'|t }}</a>
+            <span class="institution-footer__separator">|</span>
+            <a href="/fr/liens-utiles">{{ 'Liens utiles'|t }}</a>
+          </h4>
+
+          <p class="institution-footer__legal-title">
+            {{ 'Mention légale & politique en matière de respect de la vie privée'|t }}
+          </p>
+
+          <p>
+            {{ 'Veuillez lire'|t }}
+            <a href="/fr/mention-legale-politique-en-matiere-de-respect-de-la-vie-privee">
+              {{ 'la mention légale & politique en matière de respect de la vie privée'|t }}
+            </a>
+            {{ 'avant d’utiliser le site.'|t }}
+          </p>
+        </div>
+      {% endif %}
+    </div>
+
+    <aside class="institution-footer__sponsor" aria-label="{{ 'Sponsor'|t }}">
+      <h5>
+        {{ 'Co-financé par'|t }}<br>
+        {{ "l'Union européenne"|t }}
+      </h5>
+
+      <img
+        src="{{ base_path ~ directory }}/images/european_union_logo.jpg"
+        alt="{{ 'European Union logo'|t }}"
+        width="180"
+        loading="lazy">
+    </aside>
+
+  </div>
+</footer>

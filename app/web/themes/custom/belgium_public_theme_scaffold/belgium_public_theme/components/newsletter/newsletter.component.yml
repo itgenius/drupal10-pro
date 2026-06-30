@@ -1,0 +1,7 @@
+name: Newsletter
+props:
+  type: object
+  properties:
+    title: { type: string }
+    summary: { type: string }
+    action: { type: string }

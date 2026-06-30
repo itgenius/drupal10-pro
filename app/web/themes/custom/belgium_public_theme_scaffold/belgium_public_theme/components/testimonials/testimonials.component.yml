@@ -1,0 +1,8 @@
+name: Testimonials
+props:
+  type: object
+  properties:
+    title: { type: string }
+    summary: { type: string }
+    items:
+      type: array

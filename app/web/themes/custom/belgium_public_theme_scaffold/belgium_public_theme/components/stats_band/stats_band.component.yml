@@ -1,0 +1,6 @@
+name: Stats band
+props:
+  type: object
+  properties:
+    items:
+      type: array

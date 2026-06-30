@@ -1,0 +1,15 @@
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-branding" aria-label="{{ site_name }}">
+      {% if logo %}
+        <img src="{{ logo }}" alt="{{ site_name }}" class="site-branding__logo" />
+      {% endif %}
+      <span class="site-branding__name">{{ site_name }}</span>
+    </a>
+    <form class="site-search" action="{{ search_page_url }}" method="get" role="search">
+      <label class="visually-hidden" for="site-search-keywords">Recherche</label>
+      <input id="site-search-keywords" type="search" name="keys" placeholder="Rechercher un service, un document, une démarche…" />
+      <button type="submit">Rechercher</button>
+    </form>
+  </div>
+</header>

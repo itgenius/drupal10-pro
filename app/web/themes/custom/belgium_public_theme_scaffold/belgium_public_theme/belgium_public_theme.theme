@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Theme hooks for Belgium Public Theme.
+ */
+
+/**
+ * Preprocess language switcher links.
+ *
+ * Converts long labels to short labels:
+ * English -> EN
+ * Français -> FR
+ * Nederlands -> NL
+ */
+function belgium_public_theme_preprocess_links__language_block(array &$variables): void {
+  if (empty($variables['links']) || !is_array($variables['links'])) {
+    return;
+  }
+
+  foreach ($variables['links'] as &$item) {
+    if (empty($item['link']['#title'])) {
+      continue;
+    }
+
+    $title = trim((string) $item['link']['#title']);
+    $lower = mb_strtolower($title);
+
+    if (str_starts_with($lower, 'english')) {
+      $item['link']['#title'] = 'EN';
+    }
+    elseif (str_starts_with($lower, 'french')) {
+      $item['link']['#title'] = 'FR';
+    }
+    elseif (str_starts_with($lower, 'neder') || str_starts_with($lower, 'dutch')) {
+      $item['link']['#title'] = 'NL';
+    }
+  }
+}

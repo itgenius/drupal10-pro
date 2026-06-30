@@ -1,0 +1,13 @@
+<section class="newsletter-section">
+  <div class="container newsletter-section__inner">
+    <div>
+      <h2>{{ title }}</h2>
+      <p>{{ summary }}</p>
+    </div>
+    <form action="{{ action }}" method="post" class="newsletter-form">
+      <label class="visually-hidden" for="newsletter-email">Adresse e-mail</label>
+      <input id="newsletter-email" type="email" name="email" placeholder="Votre adresse e-mail" required />
+      <button type="submit">S'inscrire</button>
+    </form>
+  </div>
+</section>

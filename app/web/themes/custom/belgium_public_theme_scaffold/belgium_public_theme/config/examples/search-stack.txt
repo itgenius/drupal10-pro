@@ -1,0 +1,10 @@
+Modules recommandés pour la recherche filtrée :
+- search_api
+- facets
+- views
+- better_exposed_filters (optionnel)
+
+Vue recommandée : `search`
+- Page path : /recherche
+- Exposed fulltext filter
+- Facets en sidebar : type de contenu, thème, langue, date, administration

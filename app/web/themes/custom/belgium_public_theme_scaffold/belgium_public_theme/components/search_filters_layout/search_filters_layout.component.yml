@@ -1,0 +1,6 @@
+name: Search filters layout
+slots:
+  filters:
+    title: Filters
+  results:
+    title: Results

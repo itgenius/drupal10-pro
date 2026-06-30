@@ -1,0 +1,15 @@
+<?php
+
+function institution_preprocess_html(&$variables) {
+  $theme_path = \Drupal::service('extension.list.theme')->getPath('institution');
+  $variables['#attached']['html_head_link'][] = [
+    [
+      'rel' => 'preload',
+      'href' => base_path() . $theme_path . '/fonts/roboto-v30-latin-regular.woff2',
+      'as' => 'font',
+      'type' => 'font/woff2',
+      'crossorigin' => 'anonymous',
+    ],
+    TRUE,
+  ];
+}

@@ -1,0 +1,63 @@
+{% import _self as menus %}
+
+{{ menus.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+
+  {% if items %}
+    {% if menu_level == 0 %}
+      <ul{{ attributes.addClass('menu', 'menu--main', 'mega-menu') }}>
+    {% else %}
+      <ul class="mega-menu__panel-list">
+    {% endif %}
+
+    {% for item in items %}
+      {% set item_classes = [
+        'menu__item',
+        item.below ? 'menu__item--expanded',
+        menu_level == 0 ? 'mega-menu__item' : 'mega-menu__subitem'
+      ] %}
+
+      <li{{ item.attributes.addClass(item_classes) }}>
+        {% if menu_level == 0 and item.below %}
+          <button
+            class="mega-menu__trigger"
+            type="button"
+            aria-expanded="false"
+            aria-haspopup="true">
+            <span>{{ item.title }}</span>
+            <span class="mega-menu__caret" aria-hidden="true">▾</span>
+          </button>
+
+          <div class="mega-menu__panel">
+            <div class="mega-menu__panel-inner">
+              <div class="mega-menu__panel-col mega-menu__panel-col--intro">
+                <a href="{{ item.url }}" class="mega-menu__parent-link">
+                  {{ item.title }}
+                </a>
+                <p class="mega-menu__intro-text">
+                  {{ 'Explore this section and discover related content, pages and services.'|t }}
+                </p>
+                <a href="{{ item.url }}" class="mega-menu__cta">
+                  {{ 'See all'|t }} {{ item.title }}
+                </a>
+              </div>
+
+              <div class="mega-menu__panel-col mega-menu__panel-col--links">
+                {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+              </div>
+            </div>
+          </div>
+        {% else %}
+          {{ link(item.title, item.url, {'class': ['menu__link', menu_level > 0 ? 'mega-menu__sublink']}) }}
+          {% if item.below %}
+            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+          {% endif %}
+        {% endif %}
+      </li>
+    {% endfor %}
+
+    </ul>
+  {% endif %}
+{% endmacro %}

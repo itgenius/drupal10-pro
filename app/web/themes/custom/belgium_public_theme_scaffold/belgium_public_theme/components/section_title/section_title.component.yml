@@ -1,0 +1,6 @@
+name: Section title
+props:
+  type: object
+  properties:
+    title: { type: string }
+    summary: { type: string }

@@ -1,0 +1,4 @@
+name: Site footer
+slots:
+  footer_content:
+    title: Footer content

@@ -1,0 +1,5 @@
+name: Institution Contact
+type: module
+description: "Page Contactez-nous premium avec formulaire fonctionnel sans plugin."
+core_version_requirement: ^10 || ^11
+package: Custom

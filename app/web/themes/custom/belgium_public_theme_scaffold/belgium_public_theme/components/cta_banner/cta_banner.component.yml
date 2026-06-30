@@ -1,0 +1,8 @@
+name: CTA banner
+props:
+  type: object
+  properties:
+    title: { type: string }
+    summary: { type: string }
+    button_label: { type: string }
+    button_url: { type: string }

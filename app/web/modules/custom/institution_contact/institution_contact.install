@@ -1,0 +1,116 @@
+<?php
+
+/**
+ * @file
+ * Install and update hooks for Institution Contact.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function institution_contact_schema(): array {
+  $schema['institution_contact_submission'] = [
+    'description' => 'Stores contact form submissions.',
+    'fields' => [
+      'id' => [
+        'description' => 'Primary ID.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'created' => [
+        'description' => 'Unix timestamp when the submission was created.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'name' => [
+        'description' => 'Sender name.',
+        'type' => 'varchar',
+        'length' => 190,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'email' => [
+        'description' => 'Sender email.',
+        'type' => 'varchar',
+        'length' => 190,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'phone' => [
+        'description' => 'Sender phone.',
+        'type' => 'varchar',
+        'length' => 80,
+        'not null' => FALSE,
+      ],
+      'topic' => [
+        'description' => 'Topic machine value.',
+        'type' => 'varchar',
+        'length' => 80,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'topic_label' => [
+        'description' => 'Topic human-readable label.',
+        'type' => 'varchar',
+        'length' => 190,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'subject' => [
+        'description' => 'Message subject.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'message' => [
+        'description' => 'Message body.',
+        'type' => 'text',
+        'size' => 'big',
+        'not null' => TRUE,
+      ],
+      'ip' => [
+        'description' => 'Sender IP address.',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => FALSE,
+      ],
+      'mail_sent' => [
+        'description' => 'Whether email sending succeeded.',
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'status' => [
+        'description' => 'Submission status.',
+        'type' => 'varchar',
+        'length' => 40,
+        'not null' => TRUE,
+        'default' => 'new',
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'created' => ['created'],
+      'email' => ['email'],
+      'status' => ['status'],
+    ],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Creates the contact submissions table for already installed modules.
+ */
+function institution_contact_update_10001(): void {
+  $schema = \Drupal::database()->schema();
+
+  if (!$schema->tableExists('institution_contact_submission')) {
+    $module_schema = institution_contact_schema();
+    $schema->createTable('institution_contact_submission', $module_schema['institution_contact_submission']);
+  }
+}

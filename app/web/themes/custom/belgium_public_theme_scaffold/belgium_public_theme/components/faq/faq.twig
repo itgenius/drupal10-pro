@@ -1,0 +1,13 @@
+<section class="faq-section">
+  <div class="container">
+    {% include 'belgium_public_theme:section_title' with { title: title, summary: summary } only %}
+    <div class="faq-list">
+      {% for item in items %}
+        <details class="faq-item">
+          <summary>{{ item.question }}</summary>
+          <div class="faq-item__answer">{{ item.answer|raw }}</div>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>

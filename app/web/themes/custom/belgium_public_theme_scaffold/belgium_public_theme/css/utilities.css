@@ -1,0 +1,17 @@
+.layout-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-main {
+  flex: 1 0 auto;
+}
+
+.landing-page > .field {
+  margin: 0;
+}
+
+.pre-footer {
+  background: #f8fafc;
+}
